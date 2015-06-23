@@ -1,0 +1,5 @@
+1. gnumpy adds a lot of overhead for certain neural nets. For example, with an 0 hidden layer net with a softmax output layer and an embedding link, all of the computation should be done on the CPU. The garray conversion during the embedding link fprop and the garray conversions in the softmax output layer add some overhead. It might be possible to rewrite the layer and link code to do fewer conversions, but it would be annoying. Alternatively, a gnumpy replacement with less overhead on the CPU would solve these problems. In the example I tried, there was about a 20% slowdown because of this code (Softmax layer errorEachCase and OutputLayer dEdNetInput and EmbeddingLink fprop).
+
+No plans to fix this.
+
+
