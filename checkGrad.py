@@ -489,9 +489,17 @@ def test_lots():
     r3 = test_EmbeddingWithTreeSM1(7) and test_EmbeddingWithTreeSM1(909) and test_EmbeddingWithTreeSM1(123456)
     r4 = test_EmbeddingWithTreeSM2(7) and test_EmbeddingWithTreeSM2(909) and test_EmbeddingWithTreeSM2(123456)
     assert(all([r1,r2,r3,r4]))
+    rr1 = test_1()
+    rr2 = test_2()
+    rr3 = test_3()
+    rr4 = test_4()
+    rr5 = test_5()
+    assert(all([rr1,rr2,rr3,rr4,rr5]))
+    print '\nall ok'
 
 #export GNUMPY_CPU_PRECISION=128
 if __name__ == "__main__":
-    pass
+    test_prec()
+    test_lots()
 
 
