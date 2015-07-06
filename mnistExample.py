@@ -53,8 +53,6 @@ def loadMNISTOrig():
     testInps = loadMNISTOrigImages(os.path.join(rootPath, 't10k-images-idx3-ubyte.gz'))
 
     return trainInps, trainTargs, testInps, testTargs
-    
-    
 
 def numMistakesLoss(targets, outputs):
     k = 'out0'
@@ -81,26 +79,6 @@ def allMinibatches(mbsz, inps, targs):
 def sampleMinibatch(mbsz, inps, targs):
     idx = num.random.randint(inps.shape[0], size=(mbsz,))
     return {'inp0':inps[idx]}, {'out0':targs[idx]}
-
-## def fetchData():
-##     if not os.path.exists('mnist.npz'):
-##         if not os.path.exists('mnist.npz.gz'):
-##             url = "http://www.cs.toronto.edu/~gdahl/mnist.npz.gz"
-##             print "Downloading mnist data from %s" % (url)
-##             urllib.urlretrieve(url, filename='mnist.npz.gz')
-##         print "Unzipping data ..."
-##         #Not all gzips have the --keep option! what to do?
-##         #subprocess.call("gunzip --keep mnist.npz.gz", shell = True)
-##         subprocess.call("gzip -d < mnist.npz.gz > mnist.npz", shell = True)
-## def loadData():
-##     fetchData()
-##     print "Loading data"
-##     f = num.load("mnist.npz")
-##     trainInps = f['trainInps']/255.
-##     testInps = f['testInps']/255.
-##     trainTargs = f['trainTargs']
-##     testTargs = f['testTargs']
-##     return trainInps, trainTargs, testInps, testTargs
 
 def fetchData():
     names = ['train-labels-idx1-ubyte.gz', 't10k-labels-idx1-ubyte.gz',\
