@@ -13,6 +13,16 @@
 #    limitations under the License.
 
 
+#This script trains a simple log-linear skip-gram language model on
+#the text8 english text dataset
+#(http://mattmahoney.net/dc/textdata). The primary goal of the model
+#is not to make predictions, since it only looks at one context word
+#at a time, but to instead learn good word embeddings. The skipgram LM
+#is one of the algorithms the word2vec software
+#(https://code.google.com/p/word2vec/) implements, although the
+#word2vec software is multithreaded.
+
+
 import numpy as num
 import itertools
 import os

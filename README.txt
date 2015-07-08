@@ -56,7 +56,8 @@ GDNN. GDNN also does not explicitly support pre-training or Boltzmann
 machines, but it is trivial to build a net out of a set of initial
 pre-trained weights. GDNN also does not support any other training
 algorithms than minibatch SGD with momentum and full-batch training
-algorithms are not a good fit for the code base.
+algorithms are not a good fit for the code base. Sadly, GDNN also does
+not support recurrent neural nets or LSTMs.
 
 
 
@@ -116,6 +117,24 @@ $ python skipGramLogLinExample.py
 Both examples will try to download the data they need. If something
 goes wrong in that process you can do it yourself and symlink to the
 files they check for.
+
+The MNIST example doesn't train long enough to get very good results
+and better results should also be possible with a larger net that uses
+dropout. The MNIST example also samples training cases with
+replacement to create minibatches. On a modest dataset such as MNIST,
+it might be better to shuffle the training set and sample without
+replacement, reshuffling after each epoch or use some other data
+presentation scheme.
+
+The skipgram example shows how to learn word embeddings and how to use
+the tree softmax output layer to implement one of the models in the
+famous word2vec software. However, unlike word2vec, it isn't
+multithreaded so it will be a bit slower than word2vec. The main goal
+of the example is to show the flexibility of the architectures one can
+train with GDNN. Add a few hidden layers and increase the input
+context and you are most of the way to a (non-recurrent) neural
+language model! The skipgram example also shows the easiest way to do
+learning rate annealing.
 
 
 ========================================================

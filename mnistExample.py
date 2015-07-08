@@ -13,6 +13,12 @@
 #    limitations under the License.
 
 
+#This script trains a simple classification neural net on MNIST for 5
+#epochs and then saves the weights. The net has two hidden layers of
+#512 logistic sigmoid units each. To get good MNIST results you will
+#need to train much longer.
+
+
 import numpy as num
 import gnumpy as gnp
 import itertools
